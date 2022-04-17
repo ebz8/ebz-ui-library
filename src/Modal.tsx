@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, FunctionComponent } from 'react';
-import { Dialog, Form, CloseBtn, Content } from './Modal.styled';
-import { ModalProps } from './Modal.types';
+import React, { useEffect, useRef, FunctionComponent } from 'react'
+import { Dialog, Form, CloseBtn, Content } from './Modal.styled'
+import { ModalProps } from './Modal.types'
 
 /**
  *
@@ -12,12 +12,12 @@ export const Modal: FunctionComponent<ModalProps> = ({
   modalTitle,
   modalContent,
 }) => {
-  const ref: any = useRef(null);
+  const ref: any = useRef(null)
   // const preventAutoClose = (e: MouseEvent) => e.stopPropagation()
 
   useEffect(() => {
-    isOpened ? ref.current?.showModal() : ref.current?.close();
-  }, [isOpened]);
+    isOpened ? ref.current?.showModal() : ref.current?.close()
+  }, [isOpened])
 
   return (
     <Dialog ref={ref} title={modalTitle} className="modal" id="modal">
@@ -36,5 +36,5 @@ export const Modal: FunctionComponent<ModalProps> = ({
         </Content>
       </Form>
     </Dialog>
-  );
-};
+  )
+}

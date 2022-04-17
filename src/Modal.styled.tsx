@@ -1,9 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-/**
- *
- *  STYLE
- */
 export const Dialog = styled.dialog`
   display: flex;
   flex-flow: column wrap;
@@ -27,13 +23,13 @@ export const Dialog = styled.dialog`
     backdrop-filter: blur(5px);
     transition: backdrop-filter 0.5s ease;
   }
-`;
+`
 
 export const Form = styled.form`
   display: flex;
   flex-flow: column;
   gap: 1.5rem;
-`;
+`
 
 export const CloseBtn = styled.button`
   align-self: flex-end;
@@ -45,7 +41,7 @@ export const CloseBtn = styled.button`
   &:hover {
     background-color: grey;
   }
-`;
+`
 
 export const Content = styled.article`
   overflow-y: scroll;
@@ -53,4 +49,4 @@ export const Content = styled.article`
   overscroll-behavior-y: contain;
   display: grid;
   justify-items: flex-start;
-`;
+`
