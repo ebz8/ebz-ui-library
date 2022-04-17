@@ -8,7 +8,6 @@ export interface ModalProps {
   onClose?: () => void;
   modalTitle?: string;
   modalContent?: string;
-  modalWidth?: ModalWidthType;
 }
 /**
  *
@@ -19,7 +18,6 @@ export const Modal: FunctionComponent<ModalProps> = ({
   onClose,
   modalTitle,
   modalContent,
-  modalWidth
 }) => {
   const ref: any = useRef(null);
   // const preventAutoClose = (e: MouseEvent) => e.stopPropagation()
