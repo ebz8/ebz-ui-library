@@ -1,13 +1,14 @@
-import React, { FunctionComponent, useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
-import "../Modal/Modal.style.css"
-
+import React, { useEffect, useRef, FunctionComponent } from 'react';
 //export interface ModalProps extends HTMLAttributes<HTMLDialogElement> {
+
+
+export type ModalWidthType = "xl" | "lg" | "md" | "sm";
 export interface ModalProps {
   isOpened?: boolean;
   onClose?: () => void;
   modalTitle?: string;
   modalContent?: string;
+  modalWidth?: ModalWidthType;
 }
 /**
  *
@@ -18,14 +19,16 @@ export const Modal: FunctionComponent<ModalProps> = ({
   onClose,
   modalTitle,
   modalContent,
+  modalWidth
 }) => {
   const ref: any = useRef(null);
+  // const preventAutoClose = (e: MouseEvent) => e.stopPropagation()
 
   useEffect(() => {
     isOpened ? ref.current?.showModal() : ref.current?.close();
   }, [isOpened]);
 
-  const modal = (
+  return(
     <dialog ref={ref} title={modalTitle} className="modal" id="modal">
       <form method="dialog">
         <button
@@ -43,5 +46,4 @@ export const Modal: FunctionComponent<ModalProps> = ({
       </form>
     </dialog>
   );
-  return isOpened ? ReactDOM.createPortal(modal, document.body) : null;
 };
