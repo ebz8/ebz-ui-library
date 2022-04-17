@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Modal, ModalProps } from '../src/components/Modal/Modal';
-import { useModal } from '../src/hooks/useModal'
+import { Modal, ModalProps } from '../src/Modal';
+import { useModal } from '../src/useModal'
 
 const meta: Meta = {
   title: 'Accessible Modal',
