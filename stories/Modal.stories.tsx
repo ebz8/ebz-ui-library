@@ -1,19 +1,24 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Modal, ModalProps } from '../src/components/Modal/Modal';
+import { useModal } from '../src/hooks/useModal'
 
 const meta: Meta = {
   title: 'Accessible Modal',
   component: Modal,
 };
-
 export default meta;
 
 const Template: Story<ModalProps> = (args) => <Modal {...args} />;
 
+// export function Demo = () => {
+//     const { isOpened, toggle } = useModal()
+// }
+
 export const Default = Template.bind({});
 Default.args = {
-  isOpened: true,
+  isOpened: false,
+  onClose: {},
   modalContent: 'Test modale affichée',
 };
 

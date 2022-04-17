@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import React, { FunctionComponent, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import "../Modal/Modal.style.css"
 
@@ -6,8 +6,8 @@ import "../Modal/Modal.style.css"
 export interface ModalProps {
   isOpened?: boolean;
   onClose?: () => void;
-  modalContent?: JSX.Element;
   modalTitle?: string;
+  modalContent?: string;
 }
 /**
  *
@@ -16,12 +16,10 @@ export interface ModalProps {
 export const Modal: FunctionComponent<ModalProps> = ({
   isOpened,
   onClose,
-  modalContent,
   modalTitle,
+  modalContent,
 }) => {
   const ref: any = useRef(null);
-
-  //   const [isOpened, setIsOpened] = useState(false)
 
   useEffect(() => {
     isOpened ? ref.current?.showModal() : ref.current?.close();
@@ -36,7 +34,6 @@ export const Modal: FunctionComponent<ModalProps> = ({
           title="close modal"
           value="close"
           onClick={onClose}
-        //   onClick={setIsOpened(false)}
         >
           X
         </button>

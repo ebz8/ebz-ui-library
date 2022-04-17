@@ -35,7 +35,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "ebz-ui-library",
+  "name": "@elbaz888/ebz-ui-library",
   "author": "Elodie Boin Zanchi",
   "module": "dist/ebz-ui-library.esm.js",
   "size-limit": [
