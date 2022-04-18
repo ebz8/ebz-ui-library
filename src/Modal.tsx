@@ -1,11 +1,8 @@
-import React, { useEffect, useRef, FunctionComponent } from 'react'
+import React, { useEffect, useRef, FunctionComponent, useCallback } from 'react'
+
 import { Dialog, Form, CloseBtn, Content } from './Modal.styled'
 import { ModalProps } from './Modal.types'
 
-/**
- *
- *  FUNCTIONAL COMPONENT
- */
 export const Modal: FunctionComponent<ModalProps> = ({
   isOpened,
   onClose,
@@ -13,14 +10,39 @@ export const Modal: FunctionComponent<ModalProps> = ({
   modalContent,
 }) => {
   const ref: any = useRef(null)
-  // const preventAutoClose = (e: MouseEvent) => e.stopPropagation()
+
+  const escFunction = (event:React.KeyboardEvent) => {
+    if (event.code === "Escape") {
+      onClose()
+    }
+  }
 
   useEffect(() => {
     isOpened ? ref.current?.showModal() : ref.current?.close()
+
+    if (typeof ref.current?.showModal != 'function') {
+      alert('The <dialog> API is not supported by this browser')
+    }
   }, [isOpened])
 
   return (
-    <Dialog ref={ref} title={modalTitle} className="modal" id="modal">
+    <Dialog
+      ref={ref}
+      title={modalTitle}
+      className="modal"
+      id="modal"
+      onKeyUp={escFunction}
+      onClick={(e) => {
+        if (
+          e.nativeEvent.offsetX < 0 ||
+          e.nativeEvent.offsetX > ref.current.offsetWidth ||
+          e.nativeEvent.offsetY < 0 ||
+          e.nativeEvent.offsetY > ref.current.offsetHeight
+        ) {
+          onClose()
+        }
+      }}
+    >
       <Form method="dialog">
         <CloseBtn
           autoFocus

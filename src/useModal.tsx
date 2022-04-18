@@ -1,11 +1,15 @@
 import { useState } from 'react'
 
+
+  // rajouter fermeture au clic en dehors avec react hook useOnClickOutside
+
 export const useModal = () => {
-  const [isOpened, setIsOpened] = useState<boolean>(false)
-  // const toggle = () => setIsOpened(!isOpened)
-  const toggleModal = () => setIsOpened((isOpened) => !isOpened)
+  const [showModal, setshowModal] = useState<boolean>(false)
+  const hideModal = () => setshowModal(false)
+  const toggleModal = () => setshowModal((showModal) => !showModal)
   return {
-    isOpened,
+    showModal,
+    hideModal,
     toggleModal,
   }
 }
