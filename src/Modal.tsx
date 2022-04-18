@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, FunctionComponent, useCallback } from 'react'
+import React, { useEffect, useRef, FunctionComponent } from 'react'
 
 import { Dialog, Form, CloseBtn, Content } from './Modal.styled'
 import { ModalProps } from './Modal.types'
@@ -12,7 +12,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   const ref: any = useRef(null)
 
   const escFunction = (event:React.KeyboardEvent) => {
-    if (event.code === "Escape") {
+    if (event.key === "Escape") {
       onClose()
     }
   }
@@ -32,6 +32,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
       className="modal"
       id="modal"
       onKeyUp={escFunction}
+      onKeyDown={escFunction}
       onClick={(e) => {
         if (
           e.nativeEvent.offsetX < 0 ||
