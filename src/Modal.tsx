@@ -11,10 +11,8 @@ export const Modal: FunctionComponent<ModalProps> = ({
 }) => {
   const ref: any = useRef(null)
 
-  const escFunction = (event:React.KeyboardEvent) => {
-    if (event.key === "Escape") {
-      onClose()
-    }
+  const escFunction = (event: React.KeyboardEvent) => {
+    event.key === 'Escape' && onClose()
   }
 
   useEffect(() => {

@@ -7,7 +7,7 @@ export const Dialog = styled.dialog`
   max-width: 90ch;
   border-radius: 4px;
   border: 1px solid white;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 
   &:not([open]) {
     pointer-events: none;
